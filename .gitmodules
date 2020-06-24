@@ -1,0 +1,3 @@
+[submodule "initial_conditions_WOA"]
+	path = initial_conditions_WOA
+	url = https://github.com/COSIMA/initial_conditions_WOA.git
