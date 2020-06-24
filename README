@@ -1,0 +1,59 @@
+2017-11-14 Fanghua Wu
+
+This directory is using to produce the potential temperature and regrid T&S to the model grid.
+
+	1. run inte.csh to create PT, and use the monthly data instead of the seasonal data
+	   in the upper 1500m ocean.
+
+	2. run make_inital_conditions.sh in the directory initial_conditions_WOA/ for regridding. 
+
+======================================================================================
+Summary about processing the 12-month data for different degree versions:
+======================================================================================
+
+01 version
+======================================================================================
+                  Resource Usage on 2017-10-09 21:43:12:
+   Job Id:             9558755.r-man2
+   Project:            x77
+   Exit Status:        0
+   Service Units:      131.75
+   NCPUs Requested:    8                      NCPUs Used: 8
+                                           CPU Time Used: 07:10:09
+   Memory Requested:   64.0GB                Memory Used: 18.22GB
+   Walltime requested: 12:00:00            Walltime Used: 05:29:23
+   JobFS requested:    400.0GB                JobFS used: 3.3GB
+======================================================================================
+
+025 version
+======================================================================================
+                  Resource Usage on 2017-10-01 12:02:43:
+   Job Id:             9277169.r-man2
+   Project:            x77
+   Exit Status:        0
+   Service Units:      17.33
+   NCPUs Requested:    8                      NCPUs Used: 8
+                                           CPU Time Used: 01:14:23
+   Memory Requested:   64.0GB                Memory Used: 4.62GB
+   Walltime requested: 01:00:00            Walltime Used: 00:43:20
+   JobFS requested:    400.0GB                JobFS used: 757.63MB
+======================================================================================
+
+10 version
+======================================================================================
+                  Resource Usage on 2017-10-01 11:14:44:
+   Job Id:             9277004.r-man2
+   Project:            x77
+   Exit Status:        0
+   Service Units:      5.48
+   NCPUs Requested:    8                      NCPUs Used: 8
+                                           CPU Time Used: 00:19:43
+   Memory Requested:   64.0GB                Memory Used: 3.18GB
+   Walltime requested: 01:00:00            Walltime Used: 00:13:42
+   JobFS requested:    400.0GB                JobFS used: 299.24MB
+======================================================================================
+
+
+2020-06-24: Andrew Kiss
+ - copied from /g/data/hh5/tmp/cosima/observations/postprocessing/woa13/tools/
+ - set up git repo
