@@ -66,8 +66,12 @@ for mm in range(0,len(mon)):
     s_practical[:len(depth_upper),:,:] = s_practical_upper
     depth = depth_lower
     del t_in_situ_lower,t_in_situ_upper,s_practical_lower,s_practical_upper
+   
+    # mask t_in_situ and s_practical before doing calculations:
+    t_in_situ = np.ma.masked_where(t_in_situ>1000,t_in_situ)
+    s_practical = np.ma.masked_where(s_practical>1000,s_practical)
     
-    # convert in situ temperature to potential temperature:
+    # convert in situ temperature to conservative temperature:
     import gsw
     print('Calculating pressure from depth')
     longitude,latitude=np.meshgrid(lon,lat)
@@ -85,9 +89,8 @@ for mm in range(0,len(mon)):
     		longitude,latitude)
     del longitude,latitude
     
-    print('Calculating potential temperature from in situ temperature')
-    t_potential = gsw.pt0_from_t(s_absolute,t_in_situ,pressure_tile)
-    t_potential = np.ma.masked_invalid(t_potential)
+    print('Calculating conservative temperature from in situ temperature')
+    t_conservative = gsw.CT_from_t(s_absolute,t_in_situ,pressure_tile)
     
     # save to netcdf
     #save_file = data_dir + 'woa13_decav_ts_jan_04v2.nc'
@@ -100,15 +103,13 @@ for mm in range(0,len(mon)):
     # overwrite salinity with data including January near surface values:
     ncFile.variables['practical_salinity'][0,...] = s_practical
     
-    # add variable for potential temperature:
-    t_var = ncFile.createVariable('potential_temperature', 'f4', ('time','depth',\
+    # add variable for conservative temperature:
+    t_var = ncFile.createVariable('conservative_temperature', 'f4', ('time','depth',\
                    'lat','lon'),fill_value=9.96921e+36)
     t_var.units = 'degrees celsius'
-    t_var.long_name = 'potential temperature calculated using teos10 from objectively'+\
+    t_var.long_name = 'conservative temperature calculated using teos10 from objectively'+\
     	' analysed mean fields for sea_water_temperature'
-    t_var.missing_value =  9.96921e+36
-    t_potential[np.where(np.isnan(t_potential)==True)] = 9.96921e+36
-    t_var[0,:] = t_potential
+    t_var[0,:] = t_conservative
 
 #s_var = ncFile.createVariable('practical_salinity', 'f4', ('time','depth','lat','lon'),fill_value=9.96921e+36)
 #s_var.units = '1'
