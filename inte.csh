@@ -17,48 +17,48 @@
 # 2. using 'ncks --mk_rec time' to add unlimited attribute of time.
 # 3. rename salinity name from 's_an' to 'practical_salinity' 
 # 4. using 'setup_WOA_initial_conditions.py' to processing the 
-#    potential temperature.
+#    conservative temperature.
 #==================================================================
 #
 
-cd /g/data3/hh5/tmp/cosima/woa13/monthly/
+set dst_dir = /g/data3/hh5/tmp/cosima/woa13/monthly/
 echo 'extract salinity'
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc woa13_decav_ts_01_04v2.nc
-ncks --mk_rec time woa13_decav_ts_01_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_01_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc woa13_decav_ts_02_04v2.nc
-ncks --mk_rec time woa13_decav_ts_02_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_02_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc woa13_decav_ts_03_04v2.nc
-ncks --mk_rec time woa13_decav_ts_03_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_03_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc woa13_decav_ts_04_04v2.nc
-ncks --mk_rec time woa13_decav_ts_04_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_04_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc woa13_decav_ts_05_04v2.nc
-ncks --mk_rec time woa13_decav_ts_05_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_05_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc woa13_decav_ts_06_04v2.nc
-ncks --mk_rec time woa13_decav_ts_06_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_06_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc woa13_decav_ts_07_04v2.nc
-ncks --mk_rec time woa13_decav_ts_07_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_07_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc woa13_decav_ts_08_04v2.nc
-ncks --mk_rec time woa13_decav_ts_08_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_08_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc woa13_decav_ts_09_04v2.nc
-ncks --mk_rec time woa13_decav_ts_09_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_09_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc woa13_decav_ts_10_04v2.nc
-ncks --mk_rec time woa13_decav_ts_10_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_10_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc woa13_decav_ts_11_04v2.nc
-ncks --mk_rec time woa13_decav_ts_11_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_11_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc woa13_decav_ts_12_04v2.nc
-ncks --mk_rec time woa13_decav_ts_12_04v2.nc -o test.nc
-mv test.nc woa13_decav_ts_12_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_01_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_01_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_01_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_02_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_02_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_02_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_03_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_03_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_03_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_04_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_04_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_04_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_05_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_05_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_05_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_06_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_06_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_06_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_07_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_07_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_07_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_08_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_08_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_08_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_09_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_09_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_09_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_10_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_10_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_10_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_11_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_11_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_11_04v2.nc
+ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_12_04v2.nc
+ncks --mk_rec time $dst_dir/woa13_decav_ts_12_04v2.nc -o $dst_dir/test.nc
+mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_12_04v2.nc
 
 echo 'rename salinity to practical_salinity'
 @ mons =  1
@@ -66,10 +66,10 @@ echo 'rename salinity to practical_salinity'
 @ imon = {$mons}
 while ( $imon <= $mone )
 echo "month = " {$imon}
-ncrename -v s_an,practical_salinity /g/data3/hh5/tmp/cosima/woa13/monthly/woa13_decav_ts_`printf "%02d" {$imon}`_04v2.nc
+ncrename -v s_an,practical_salinity $dst_dir/woa13_decav_ts_`printf "%02d" {$imon}`_04v2.nc
 @ imon ++
 end
 
-echo 'processing potential temperature'
+echo 'processing conservative temperature'
 time python3 setup_WOA_initial_conditions.py
 
