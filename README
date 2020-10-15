@@ -1,11 +1,22 @@
+Tools to produce conservative temperature and salinity from World Ocean Atlas data, and regrid them to the ACCESS-OM2 model grids.
+
+	1. Run inte.csh to create temperature and salinity files, using monthly data instead of 
+           seasonal dta in the upper 1500m. Results are put in /g/data/ik11/inputs/access-om2/woa13/monthly
+
+	2. Run make_inital_conditions.sh in the directory initial_conditions_WOA/ for regridding.
+           Results are put in /g/data/ik11/inputs/access-om2/woa13/[01]*
+
+	3. If you're happy with the results, run finalise.sh to git commit and add commit info to the .nc metadata
+
+	4. If you have permissions you can run copy_to_input_rc.sh to copy January initial conditions to /g/data/ik11/inputs/access-om2/input_rc
+
+This repository contains submodules, so clone it with
+
+git clone --recursive https://github.com/COSIMA/initial_conditions_access-om2.git
+
+--------------
+
 2017-11-14 Fanghua Wu
-
-This directory is using to produce the potential temperature and regrid T&S to the model grid.
-
-	1. run inte.csh to create PT, and use the monthly data instead of the seasonal data
-	   in the upper 1500m ocean.
-
-	2. run make_inital_conditions.sh in the directory initial_conditions_WOA/ for regridding. 
 
 ======================================================================================
 Summary about processing the 12-month data for different degree versions:
