@@ -14,9 +14,9 @@ import netCDF4 as nc
 import matplotlib.pyplot as plt
 
 # paths
-src_data_dir = '/g/data/v45/akm157/data/WOA13v2/averaged_decades/'
+src_data_dir = '/g/data/ik11/inputs/WOA13v2/averaged_decades/'
 # output paths
-dst_data_dir = '/g/data3/hh5/tmp/cosima/woa13/monthly/'
+dst_data_dir = '/g/data/ik11/inputs/access-om2/woa13/monthly/'
 
 print('Importing WOA13 raw data')
 mon = ['01','02','03','04','05','06','07','08','09','10','11','12']
@@ -100,6 +100,7 @@ for mm in range(0,len(mon)):
     
     # overwrite time
     ncFile.variables['time'][0] = i
+    ncFile.variables['time'].units = 'months since 0001-01-01 00:00:00'
     # overwrite salinity with data including January near surface values:
     ncFile.variables['practical_salinity'][0,...] = s_practical
     

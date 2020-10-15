@@ -1,4 +1,4 @@
-#! /bin/csh -f
+#!/bin/csh -f
 #
 #==================================================================
 # The meaning of woa13 data name: woa13_decav_sXX_04v2.nc 
@@ -21,42 +21,49 @@
 #==================================================================
 #
 
-set dst_dir = /g/data3/hh5/tmp/cosima/woa13/monthly/
+module use /g/data/hh5/public/modules
+module load conda/analysis3
+module load nco
+
+set src_dir = /g/data/ik11/inputs/WOA13v2/averaged_decades
+set dst_dir = /g/data/ik11/inputs/access-om2/woa13/monthly
+mkdir -p $dst_dir
+
 echo 'extract salinity'
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_01_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_01_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_01_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_01_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_02_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_02_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_02_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_02_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_03_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s13_04v2.nc $dst_dir/woa13_decav_ts_03_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_03_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_03_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_04_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_04_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_04_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_04_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_05_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_05_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_05_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_05_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_06_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s14_04v2.nc $dst_dir/woa13_decav_ts_06_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_06_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_06_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_07_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_07_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_07_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_07_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_08_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_08_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_08_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_08_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_09_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s15_04v2.nc $dst_dir/woa13_decav_ts_09_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_09_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_09_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_10_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_10_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_10_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_10_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_11_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_11_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_11_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_11_04v2.nc
-ncks -v s_an /g/data/v45/akm157/data/WOA13v2/averaged_decades/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_12_04v2.nc
+ncks -v s_an $src_dir/woa13_decav_s16_04v2.nc $dst_dir/woa13_decav_ts_12_04v2.nc
 ncks --mk_rec time $dst_dir/woa13_decav_ts_12_04v2.nc -o $dst_dir/test.nc
 mv $dst_dir/test.nc $dst_dir/woa13_decav_ts_12_04v2.nc
 
